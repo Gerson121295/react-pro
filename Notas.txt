@@ -4,6 +4,9 @@
 - PlayList React+TypeScript :
  https://www.youtube.com/playlist?list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M
 
+- Repositorio del curso:
+https://github.com/Klerith/react-bases/tree/rama-counter-by
+
 
 -- Crear - App React en Typescript
 Hp01@DESKTOP-EMF7H53 MINGW64 ~/OneDrive/Escritorio/Cursos/Udemy/react-pro/React+TypeScript (main)
@@ -30,6 +33,18 @@ Done. Now run:
   cd todo-app
   npm install
   npm run dev
+
+
+- Libreria de animacion:
+-- https://gsap.com/   ->Menu -> Docs -> Installation -> npm install gsap
+
+- Patron redux: https://read.reduxbook.com/markdown/part1/04-action-creators.html
+
+
+
+
+
+
 
 
 
