@@ -26,7 +26,6 @@ export const Navigation = () => {
             </ul>
         </nav>
     
-    
         <Routes>
             {/* <Route path="/" element={<App />} /> */}
             <Route path="lazy1" element={ <LazyPage1 /> } />  {/* <h1>lazy1</h1> */}
