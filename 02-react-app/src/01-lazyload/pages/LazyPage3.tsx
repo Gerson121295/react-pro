@@ -9,4 +9,7 @@ export const LazyPage3 = () => {
 }
 
 
+//para trabajar con LazyLoad es necesario exportar por defecto
+export default LazyPage3;
+
 
