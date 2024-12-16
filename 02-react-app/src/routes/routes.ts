@@ -1,4 +1,5 @@
 import { lazy, LazyExoticComponent } from "react";
+import { NoLazy } from "../01-lazyload/pages/NoLazy";
 //import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
 
 type JSXComponent = () => JSX.Element;
@@ -14,32 +15,22 @@ interface Route {
 }
 
 //LazyLoad a las rutas: nombre del chunk: /* webpackChunkName: "LazyPage1" */
-const Lazy1 = lazy(() => import (/* webpackChunkName: "LazyPage1" */'../01-lazyload/pages/LazyPage1'));
-const Lazy2 = lazy(() => import (/* webpackChunkName: "LazyPage2" */'../01-lazyload/pages/LazyPage2'));
-const Lazy3 = lazy(() => import (/* webpackChunkName: "LazyPage3" */'../01-lazyload/pages/LazyPage3'));
-
+const LazyLayout = lazy(() => import (/* webpackChunkName: "LazyLayout" */'../01-lazyload/layout/LazyLayout'));
 
 export const routes: Route[] = [ // con : Route[] decimos que routes es un arreglo de : Route[]
     {
-        to: '/lazy1',
-        path: 'lazy1', 
+        to: '/lazyload/',
+        path: '/lazyload/*', //lazyload es toda la ruta y con el *define que todo lo que venga de esa ruta pasa por ese path 
         //Component: LazyPage1, //component a renderizar
-        Component: Lazy1, //agregando lazyLoad a la ruta
-        name: 'Lazy-1' //nombre a mostrar en la page
+        Component: LazyLayout, //agregando lazyLoad a la ruta
+        name: 'LazyLayout - Dash' //nombre a mostrar en la page
     },
     {
-        to: '/lazy2',
-        path: 'lazy2', 
+        to: '/no-lazy',
+        path: 'no-lazy', 
         //Component: LazyPage2, //component a renderizar
-        Component: Lazy2, //agregando lazyLoad a las rutas
-        name: 'Lazy-2' //nombre a mostrar en la page
+        Component: NoLazy, //este componnete no tiene lazyLoad
+        name: 'No Lazy' //nombre a mostrar en la page
     },
-    {
-        to: '/lazy3',
-        path: 'lazy3', 
-        //Component: LazyPage3, //component a renderizar
-        Component: Lazy3, //agregando lazyLoad a las rutas
-        name: 'Lazy-3' //nombre a mostrar en la page
-    },
-
+  
 ]

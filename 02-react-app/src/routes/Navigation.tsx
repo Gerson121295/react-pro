@@ -23,9 +23,7 @@ export const Navigation = () => {
                   <li key={to}>
                     <NavLink
                       to={to}
-                      className={({ isActive }) =>
-                        isActive ? "nav-active" : ""
-                      }
+                      className={({ isActive }) => isActive ? "nav-active" : "" }
                     >
                       {name}
                     </NavLink>
@@ -46,7 +44,8 @@ export const Navigation = () => {
             )}
 
             {/* //Si la ruta ingresada no existe redirija al home(primer ruta de routes.ts), y con replace definimos que no pueda regresar */}
-            <Route path="/*" element={<Navigate to={routes[0].to} replace />} />
+             <Route path="/*" element={<Navigate to={routes[0].to} replace />} />    {/*   to={routes[0].to}     to={routes[0].to.concat('lazy1')}*/}
+             
           </Routes>
         </div>
       </BrowserRouter>
