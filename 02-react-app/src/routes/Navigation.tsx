@@ -8,7 +8,6 @@ import {  LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages"
 export const Navigation = () => {
   return (
     <BrowserRouter>
-      
       <div className="main-layout">
         <nav>
             <img src={logo} alt="React Logo" />
@@ -25,7 +24,6 @@ export const Navigation = () => {
                 </li>
             </ul>
         </nav>
-    
     
         <Routes>
             {/* <Route path="/" element={<App />} /> */}
