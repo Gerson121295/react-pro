@@ -3,53 +3,40 @@ import { BrowserRouter, Navigate, NavLink, Route, Routes } from "react-router"
 import logo from '../assets/react.svg'
 
 //debido a que dentro de carpeta pages se encuentra el archivo index.ts el cual exporta todos los archivos de carpeta pages por lo que se puede seleccionar los archivos a importar
-//import {  LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages"
-
-import { routes } from "./routes"
-import { Suspense } from "react"
+import {  LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages"
 
 export const Navigation = () => {
   return (
-    <Suspense fallback={ <span>Loading...</span>}> {/* Suspense indica a react estoy cargando modulo, espera pero mientras carga haz lo siguiente  */}
-      <BrowserRouter>
-        <div className="main-layout">
-          <nav>
+    <BrowserRouter>
+      <div className="main-layout">
+        <nav>
             <img src={logo} alt="React Logo" />
             <ul>
-              {routes.map(
-                (
-                  { to, name } // route => (  //sin desestructurar el route
-                ) => (
-                  <li key={to}>
-                    <NavLink
-                      to={to}
-                      className={({ isActive }) => isActive ? "nav-active" : "" }
-                    >
-                      {name}
-                    </NavLink>
-                  </li>
-                )
-              )}
+                <li>
+                    {/* desestructura isActive y valida si es true le agrega el estilo CSS 'nav-active' sino no agrega nada, regresa un string vacio '' */}
+                    <NavLink to={"/lazy1"} className={ ({isActive}) => isActive ? 'nav-active' : '' }>Lazy 1</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/lazy2"} className={ ({isActive}) => isActive ? 'nav-active' : '' }>Lazy 2</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/lazy3"} className={ ({isActive}) => isActive ? 'nav-active' : '' }>Lazy 3</NavLink>
+                </li>
             </ul>
-          </nav>
-
-          <Routes>
+        </nav>
+    
+        <Routes>
             {/* <Route path="/" element={<App />} /> */}
-            {routes.map(
-              (
-                { path, Component } //route => (
-              ) => (
-                <Route key={path} path={path} element={<Component />} />
-              )
-            )}
+            <Route path="lazy1" element={ <LazyPage1 /> } />  {/* <h1>lazy1</h1> */}
+            <Route path="lazy2" element={ <LazyPage2 /> } />
+            <Route path="lazy3" element={ <LazyPage3 /> } />
 
-            {/* //Si la ruta ingresada no existe redirija al home(primer ruta de routes.ts), y con replace definimos que no pueda regresar */}
-             <Route path="/*" element={<Navigate to={routes[0].to} replace />} />    {/*   to={routes[0].to}     to={routes[0].to.concat('lazy1')}*/}
-             
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </Suspense>
-  );
-};
+            {/* //Si la ruta ingresada no existe redirija al home, y con replace definimos que no pueda regresar */}
+            <Route path="/*" element={ <Navigate to="/lazy1" replace/> } />
+        </Routes>
+
+      </div>
+    </BrowserRouter>
+  )
+}
 
