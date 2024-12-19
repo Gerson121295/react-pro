@@ -47,6 +47,9 @@ Done. Now run:
 - Git: git checkout -- .   //por si se borrar algun archivo permite restaurar al ultimo commit realizado
 -> git checkout -b lazyload-nested-rrd7		//Crea la rama y se mueve a esa rama
 -> git checkout lazyload-nested-rrd7		//Moverse a la rama 
+-> git push --set-upstream origin lazyload-nested-rrd7   //para subir una rama al repositorio
+
+
 
 
 --Ejemplo de rutas React Router V6.12.1 
